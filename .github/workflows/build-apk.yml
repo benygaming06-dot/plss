@@ -36,11 +36,13 @@ jobs:
 
       - name: Clean invalid Android resource files
         run: |
+          echo "Cleaning invalid resource files..."
           rm -f app/src/main/res/values/s
           rm -f app/src/main/res/drawable/s
 
-     - name: Build debug APK
-       run: |
+      - name: Build debug APK
+        run: |
+          gradle clean
           gradle assembleDebug
 
       - name: Upload APK
